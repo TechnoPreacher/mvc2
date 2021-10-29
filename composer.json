@@ -1,0 +1,10 @@
+{
+    "name": "ns/mvc",
+    "type": "prproject",
+    "autoload": {
+        "psr-4": {
+            "mvc\\": ""
+        }
+    },
+    "require": {}
+}
