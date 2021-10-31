@@ -1,6 +1,5 @@
 <?php
 
-
 namespace mvc\config;
 
 use mvc\controllers\ErrorController;
@@ -13,10 +12,8 @@ use mvc\controllers\ErrorController;
 
 class Router
 {
-    protected $controller;
-    protected $method;
-    private $config;
-    private $url;
+    private mixed $config;
+    private string $url;
 
     function __construct()
     {
@@ -36,22 +33,31 @@ class Router
     public function run()
     {
         $namespace = array_search($this->url, $this->config);
-        // echo $namespace.'</br>';
+
         if (!$namespace) {
-            // echo "ничего нет".'</br>';
             new ErrorController();
-            echo '</br></br>' . "варианты запроса: admin, admin/test, admin/index, user, user/test, user/index" . '</br>';
+            echo '</br></br>' . "варианты запроса:" . '</br>';
+
+            echo "admin/user/index - даст вьюшку с данными для админуа из модели User " . '</br>';
+            echo "admin/post/index -даст иную вьюшку с данными для админа из модели Post" . '</br>';
+
+            echo "user/user/index - даст вьюшку с данными для пользователя из модели User " . '</br>';
+            echo "user/post/index -даст иную вьюшку с данными для пользователя из модели Post" . '</br></br>';
+
+            echo "admin, admin/index, user, user/index - дадут вьюшки по умолчанию  для разных зон" . '</br>';
+            echo "admin/test,user/test - вызовет метод TEST для разных зон и разные вьюшки к нему" . '</br>';
+
+            echo " " . '</br>';
 
             return;
         }//404 если не нашли в массиве нужный путь
 
         $classSmethod = explode('@', $namespace);
-
         if (class_exists($classSmethod[0])) {
-            $obj = new $classSmethod[0];
-            if (method_exists($obj, $classSmethod[1])) {
-                $mn = $classSmethod[1];
-                $obj->$mn();
+            $class = new $classSmethod[0];
+            if (method_exists($class, $classSmethod[1])) {
+                $method = $classSmethod[1];
+                $class->$method();
             } else {
                 new ErrorController();
             }

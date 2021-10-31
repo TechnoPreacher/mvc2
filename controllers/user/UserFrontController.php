@@ -1,6 +1,6 @@
 <?php
 
-namespace mvc\controllers\User;
+namespace mvc\controllers\user;
 
 use mvc\controllers\MainController;
 

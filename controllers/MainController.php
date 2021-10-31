@@ -9,6 +9,6 @@ class MainController
 {
     protected function generate(string $path, array $data = [])
     {
-        View::generate($path,$data);
+        View::generate($path, $data);
     }
 }
