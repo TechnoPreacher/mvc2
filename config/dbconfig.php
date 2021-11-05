@@ -6,5 +6,5 @@ return
     'port'=>'3306',
     'db_name'=>'testDB',
     'user'=>'root',
-    'pass'=>'9083939q'
+    'pass'=>'12345678'
 ];
