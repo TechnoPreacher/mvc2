@@ -17,7 +17,7 @@ class Where
     private $predicate;//предикаты типа AND, O
     private $selectString = '';//если уже сформирована строка SELECT чтоб вставить WHERE до  GROUP BY
 
-    public function exploder($inputParam): array
+    private function exploder($inputParam): array//помогает перекинуть строку в масисв
     {
         $outParam = [];
         if (is_string($inputParam)) {
@@ -30,27 +30,27 @@ class Where
     }
 
 
-    public function getPredicate()
+    private function getPredicate()
     {
         return $this->predicate;
     }
 
-    public function getEquals()
+    private function getEquals()
     {
         return $this->equals;
     }
 
-    public function getFields()
+    private function getFields()
     {
         return $this->fields;
     }
 
-    public function getSelectString(): string
+    private function getSelectString(): string
     {
         return $this->selectString;
     }
 
-    public function getValues()
+    private function getValues()
     {
         return $this->Values;
     }
@@ -98,13 +98,11 @@ class Where
             }
         }
 
-
         $pos=stripos($sqlString,'ORDER BY');//позиция ORDER BY в SELECT-строке
         $strBefore=substr($sqlString,0,$pos);//беру всю строку SQL до ORDER BY
         $strAfter = substr($sqlString,$pos);//и после ORDER BY
         $str = $strBefore.$str.' '.$strAfter;//собираю обший запрос SELECT ... WHERE ... ORDER BY
 
-  //      echo $str.'</br>';
         return $str;
     }
 }

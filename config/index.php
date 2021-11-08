@@ -16,8 +16,8 @@ $select = new Select();
 $select->setTableNames('posts');
 $select->setFieldNames('subject, author_id');
 $select->setOrdered('author_id');
-//$select->setOrderedType('desc');
-//$select->setLimited(2);
+$select->setOrderedType('desc');
+$select->setLimited(2);
 
 $sqlString = $select->getSqlString();
 echo $sqlString.'</br></br>';
