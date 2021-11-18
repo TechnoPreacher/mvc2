@@ -15,9 +15,8 @@ class Post extends MainController//иерарическое наследие п�
 {
     public function index()
     {
-        //  var_dump(GlobalFilter::postFilter());
+          //var_dump(GlobalFilter::postFilter());
         $obj = new PostModel();
-        //$data = $obj->getAdminData();
         $data = $obj->getPosts(GlobalFilter::postFilter());
 
         //var_dump($data);

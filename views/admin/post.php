@@ -1,48 +1,4 @@
-<h1>фильтрация данных из модели Post (админская зона)</h1>
-<!-- </br>
-по запросу <b>$салаватюлаев</b> нам вернулось:
-<b>
-    <?php
-//  var_dump($салаватюлаев);
-?>
-</b>
--->
-
-
-<?php
-session_start();
-//echo "session started...";
-//session_destroy();
-
-if (isset($_SESSION['buf'])) {//есть ли буфер в сессии
-    if (isset($_POST['user'])) {//есть ли данные из формы
-        $arr = [];
-        $arr['user'] = $_POST['user'];
-        $arr['pass'] = $_POST['pass'];
-        $arr['mail'] = $_POST['mail'];
-        $arr['birthday'] = $_POST['birthday'];
-        $arr['gender'] = $_POST['gender'];
-        $arr['color'] = $_POST['color'];
-        array_push($_SESSION['buf'], $arr);//новый массив данных в сессию
-    }
-
-} else {
-    echo "create empty...";
-    $_SESSION['buf'] = array();//создаю пустой массив в сессии если его не было
-}
-?>
-
-<pre>
-    <?php
-    // print_r($_SESSION);  для отладки
-    ?>
-</pre>
-<?php
-
-session_write_close();//закрываю сессию после внесения изменений
-
-?>
-
+<h6>фильтрация данных из модели Post (админская зона)</h6>
 
 <!DOCTYPE html>
 
@@ -61,10 +17,10 @@ session_write_close();//закрываю сессию после внесени�
 
     <div class="form-group p-1">
         <div class="w-auto">
-            <label for="author">author:</label>
+            <label for="authorid">author id:</label>
         </div>
         <div class="w-25">
-            <input type="text" class="form-control col" name="author" placeholder="author">
+            <input type="text" class="form-control col" name="author_id" placeholder="put ID of author here">
         </div>
         <div class="col"></div>
     </div>
@@ -74,16 +30,7 @@ session_write_close();//закрываю сессию после внесени�
             <label for="subject">subject:</label>
         </div>
         <div class="w-25">
-            <input type="text" class="form-control col" name="subject" placeholder="subject">
-        </div>
-    </div>
-
-    <div class="form-group p-1">
-        <div class="w-auto">
-            <label for="created">date:</label>
-        </div>
-        <div class="w-25">
-            <input type="text" class="form-control col" name="created">
+            <input type="text" class="form-control col" name="subject" placeholder="some text from subject">
         </div>
     </div>
 
