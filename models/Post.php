@@ -2,29 +2,20 @@
 
 namespace mvc\models;
 
-class Post
+use mvc\models\common\Model;
+
+class Post extends Model
 {
-    public array $adminArray = [
-        "12" => "120",
-        "13" => "121",
-        "14" => "122",
-        "салаватюлаев" => "местный мачо с красными глазами",
-        "массив" => ['100', 500, 'тыща']
-    ];
-
-    public array $userArray = [
-        "массив2" => ['100', 500, 'тыща'],
-        "q" => 'тут тоже что-то есть'
-    ];
-
-    public function getUserData()
+   public function getPosts($filters = []): array
     {
-        return $this->userArray;
+        $select = $this->select();//объект класс селект, в который полезут таблицы/поля
+        $select->setTableNames('posts');
+        if (!empty($filters)) {
+            //$select->setWhereCondition( 'id = 31');//пример задания простого строкового условия
+            //$select->setWhereCondition( ['id'=>'31','author_id'=>'2']);//массив условий - будет собран через AND
+            $select->setWhereCondition(['like', ['subject' => '%secon%']]);//LIKE будет собрано как subject LIKE %es%
+        }
+        $table = $select->execute();
+        return $table;
     }
-
-    public function getAdminData()
-    {
-        return $this->adminArray;
-    }
-
 }

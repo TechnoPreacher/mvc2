@@ -3,48 +3,52 @@
 require '../vendor/autoload.php';
 
 use mvc\config\Router;
+
 use mvc\controllers\Connector;
+
 use mvc\lib\database\Select;//SELECT
+
 use mvc\lib\database\Where;//WHERE
 
+$obj = new Router();//запускаю роутер
+$obj->run();
+
 //коннект коннектора
-$connector = new Connector();
-$connectResource = $connector->getConnect();
+//$connector = new Connector();
+//$connectResource = $connector->getConnect();
 
-//SELECT
-$select = new Select();
-$select->setTableNames('posts');
-$select->setFieldNames('subject, author_id');
-$select->setOrdered('author_id');
-$select->setOrderedType('desc');
-$select->setLimited(2);
-
-$sqlString = $select->getSqlString();
-echo $sqlString.'</br></br>';
-$exec = $connectResource->prepare($sqlString);
-$exec->execute();
-foreach ($exec as $dataRow) {
-    var_dump($dataRow); echo '</br>';
-}
-echo '</br></br>';
-
+////SELECT
+//$select = new Select();
+//$select->setTableNames('posts');
+//$select->setFieldNames('subject, author_id');
+//$select->setOrdered('author_id');
+//$select->setOrderedType('desc');
+//$select->setLimited(2);
+//
+//$sqlString = $select->getSqlString();
+////echo $sqlString.'</br></br>';
+//$exec = $connectResource->prepare($sqlString);
+//$exec->execute();
+//foreach ($exec as $dataRow) {
+// //   var_dump($dataRow); echo '</br>';
+//}
+//echo '</br></br>';
 
 //SELECT + WHERE
 
-$where=new Where();
-$where->setFields('author_id, subject');
-$where->setEquals('=,=');
-$where->setValues('1, first test');
-$where->setPredicate('OR');
+//$where=new Where();
+//$where->setFields('author_id, subject');
+//$where->setEquals('=,=');
+//$where->setValues('1, first test');
+//$where->setPredicate('OR');
+//
+////echo 'SQL with WHERE: '.$where->createWhereString($sqlString). '</br></br>';
+//$exec = $connectResource->prepare($where->createWhereString($sqlString));
+//$exec->execute();
+//foreach ($exec as $dataRow) {
+//  //  var_dump($dataRow); echo '</br>';
+//}
 
-
-
-echo 'SQL with WHERE: '.$where->createWhereString($sqlString). '</br></br>';
-$exec = $connectResource->prepare($where->createWhereString($sqlString));
-$exec->execute();
-foreach ($exec as $dataRow) {
-    var_dump($dataRow); echo '</br>';
-}
 
 
 
@@ -91,8 +95,7 @@ foreach ($exec as $dataRow) {
 
 
 
-$obj = new Router();//запускаю роутер
-$obj->run();
+
 
 
 

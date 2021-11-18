@@ -5,14 +5,25 @@ namespace mvc\lib\database;
 
 //use http\Exception;
 
-class Select
+use mvc\lib\database\common\Bridge;
+
+use mvc\lib\database\Where;
+
+class Select extends Bridge
 {
     private $tableNames;//таблицы-алиасы
     private $fieldNames = '*';//поля (по умолчанию - всё)
     private $ordered;//сортировка для ORDER BY
     private $orderedType;
-    private int $limited=0;//ограничение числа записей в выборке
+    private int $limited = 0;//ограничение числа записей в выборке
     private int $offset = 0;//смещение
+    private $whereCondition;
+
+
+    public function setWhereCondition($whereCondition): void
+    {
+        $this->whereCondition = $whereCondition;
+    }
 
     private function buildOutputString($stringToBuild, $order = false): string
     {
@@ -109,6 +120,13 @@ class Select
     public function getSqlString(): string
     {
         $sql = 'SELECT ' . $this->getFieldNames() . ' FROM ' . $this->getTableNames();
+        $whereStr = '';
+        if (!empty($this->whereCondition)) {
+            $obj = new Where();
+            $obj->setConditions($this->whereCondition);
+            $whereStr = $obj->createWhereString();
+        }
+        $sql = $sql . $whereStr;  //+where
         if (!empty($this->ordered)) {
             $sql .= ' ORDER BY ' . $this->getOrdered() . $this->getOrderedType();
         }
@@ -120,4 +138,12 @@ class Select
         }
         return $sql;
     }
+
+    public function execute()
+    {
+        $result = $this->fromDB();
+        $result = $result->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+    }
+
 }
