@@ -135,7 +135,7 @@ class Select extends Bridge
             if ($this->offset > 0) {
                 $sql .= ', ' . $this->getOffset();
             }
-        }
+        } echo 'sql query string from post model: '. $sql . '</br></br>';
         return $sql;
     }
 
