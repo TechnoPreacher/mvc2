@@ -2,9 +2,9 @@ mvc-7
 
 А. ПЕРЕПИСАН WHERE ДЛЯ КОРРЕКТНОЙ ОБРАБОТКИ ЗАДАННОГО ФОРМАТА:
 
-- к обычной строке тупо приклеивается  WHERE в начале: 
-- ассоциативный масив формата [key1 => value1, key2 => value2,key3 => value3 ... ], собирая из него строку WHERE key1 = value1 AND key2=value2 AND key3=value3 ...
-- массив формата ['like',['key'=>'value']], собирая строку  WHERE key LIKE value
+- к обычной строке тупо приклеивается WHERE в начале: 
+- ассоциативный масив формата [key1 => value1, key2 => value2,key3 => value3 ... ], собирается в строку WHERE key1 = value1 AND key2=value2 AND key3=value3 ...
+- массив формата ['like',['key'=>'value']], собирается строку  WHERE key LIKE value
 - нужные кавычки также предусмотрены
 
 **дополнительно:**
