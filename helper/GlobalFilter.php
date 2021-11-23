@@ -21,4 +21,19 @@ class GlobalFilter
         return $result;
     }
 
+
+    public static function getParams(): array//статическая функция, отдающая гет-параметры (без урла)
+    {
+        $filteredArray = [];
+        if (!empty($_GET)) {
+            foreach ($_GET as $key => $value)
+                if ($key !== 'url')
+                {
+                   $filteredArray= [$key => $value];
+                }
+
+        }
+        return $filteredArray;
+    }
+
 }

@@ -14,13 +14,13 @@ abstract class Bridge
         $this->conn=$obj->getConnect();
     }
 
-    public function fromDB()
+    public function fromDB()//запрос в БД
     {
         $exec = $this->conn->prepare($this->getSqlString());
          $exec->execute();
         return $exec;
     }
 
-    public abstract function getSqlString();
+    public abstract function getSqlString();//будет переопределяться в классах - наследниках!
 
 }

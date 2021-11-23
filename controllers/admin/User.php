@@ -2,9 +2,9 @@
 
 namespace mvc\controllers\admin;
 
-use mvc\models\User as UserModel;
+use mvc\models\User as UserModel;//кличка
 
-//кличка
+
 
 class User extends AdminFrontController
 //иерарическое наследие позволяет избежать лишний "use", если хочешь добраться до "денег" "деда"

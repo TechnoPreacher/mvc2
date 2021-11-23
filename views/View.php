@@ -11,7 +11,7 @@ class View
         if (file_exists($file_path)) {
             include_once $file_path;
         } else {
-            throw new \Exception('file' . $file_path . 'absent');
+            throw new \Exception('file' . $file_path . '  absent!!!  ');
         }
     }
 }

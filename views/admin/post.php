@@ -13,6 +13,8 @@
 </head>
 <body>
 
+<a href="create">Create</a>//ссылка на вызов вьюшки CREATE
+
 <form name="" method="post" action="">
 
     <div class="form-group p-1">
@@ -46,12 +48,13 @@
         <?php foreach($row as $key => $value) : ?>
         <td> <?= $value ?>  </td>
         <?php endforeach ?>
+        <td><a href="post/update ?id=<?=$row['id'] ?>">Update</a></td>
+        <td><a href="post/delete ?id=<?=$row['id'] ?>">Delete</a></td>
     </tr>
     <?php endforeach ?>
 </table>
 
-
-
+//post/update?id=<?=$row['id'] ?>
 
 </body>
 </html>
