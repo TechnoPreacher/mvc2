@@ -15,6 +15,19 @@ class Model
 
     protected function select()
     {
-        return $this->sql->select();//обращение к классу select
+        return $this->sql->select();//обращение к классу select через фасад
+    }
+
+    protected function insert()
+    {
+        return $this->sql->insert();//обращение к классу insert через фасад
+    }
+    protected function update()
+    {
+        return $this->sql->update();//обращение к классу insert через фасад
+    }
+    protected function delete()
+    {
+        return $this->sql->delete();//обращение к классу delete через фасад
     }
 }
