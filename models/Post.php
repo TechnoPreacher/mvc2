@@ -2,7 +2,7 @@
 
 namespace mvc\models;
 
-use mvc\helper\GlobalFilter;
+
 use mvc\models\common\Model;
 
 class Post extends Model
@@ -43,7 +43,6 @@ class Post extends Model
         $update->setValues($postToDB); //данные
         $update->execute();
     }
-
 
     public function deletePost($postToDB): void
     {

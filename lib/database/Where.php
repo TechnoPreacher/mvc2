@@ -75,6 +75,6 @@ class Where
             }
             $str .= $strConditions;//str+conditions
         }
-        return $str;
+        return $sqlString.$str;
     }
 }

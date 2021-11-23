@@ -1,13 +1,7 @@
 <?php
 
 namespace mvc\lib\database;
-
-
-//use http\Exception;
-
 use mvc\lib\database\common\Bridge;
-
-use mvc\lib\database\Where;
 
 class Select extends Bridge
 {
@@ -18,8 +12,7 @@ class Select extends Bridge
     private int $limited = 0;//ограничение числа записей в выборке
     private int $offset = 0;//смещение
     private $whereCondition;
-
-
+    
     public function setWhereCondition($whereCondition): void
     {
         $this->whereCondition = $whereCondition;
