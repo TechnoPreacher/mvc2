@@ -4,11 +4,11 @@ require '../vendor/autoload.php';
 
 use mvc\config\Router;
 
-use mvc\controllers\Connector;
+//use mvc\controllers\Connector;
 
-use mvc\lib\database\Select;//SELECT
+//use mvc\lib\database\Select;//SELECT
 
-use mvc\lib\database\Where;//WHERE
+//use mvc\lib\database\Where;//WHERE
 
 //use mvc\CLASSES\House;
 //

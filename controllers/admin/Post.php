@@ -13,21 +13,16 @@ use mvc\helper\GlobalFilter;
 class Post extends MainController//иерарическое наследие позволяет избежать лишний "use", если хочешь добраться до "денег" "деда"а вот как правильно - хз: брать "деньги" у "деда" напрямик через use и extend "дед" или через "отца" через просто extend "отца"
 {
 
-    private $model;
+    protected $model;
 
     public function __construct()
     {
-        $this->setModel(new PostModel());
+        $this->model =new PostModel();
     }
 
     public function getModel()
     {
         return $this->model;
-    }
-
-    public function setModel($model): void
-    {
-        $this->model = $model;
     }
 
     public function create()
@@ -55,7 +50,7 @@ class Post extends MainController//иерарическое наследие п�
 
         if ((!empty(GlobalFilter::getParams())) and (!empty(GlobalFilter::postFilter()))) {
             $data = $this->getModel()->getPosts();
-            $this->generate('admin/create', $data);
+            $this->generate('admin/create', $data); //ДЛЯ РЕДИРЕКТА: header(string $header, bool $replace = true, int $response_code = 0)
         } else {
             $this->generate('admin/update', $data);//вьюшка update
         }

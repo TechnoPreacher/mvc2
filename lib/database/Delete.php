@@ -30,7 +30,11 @@ class Delete extends Bridge
 
     public function getSqlString(): string//строит SQL
     {
-        $sql = 'DELETE FROM ' . $this->getTableName() . ' WHERE ' . array_key_last($this->values) . ' = \'' . $this->values[array_key_last($this->values)] . '\'';
+        $sql = 'DELETE FROM ' . $this->getTableName();
+        $whereObj = new Where();
+        $whereObj->setConditions([array_key_last($this->values)=>$this->values[array_key_last($this->values)]]);
+        $sql = $whereObj->createWhereString( $sql);
+       // $sql = 'DELETE FROM ' . $this->getTableName() . ' WHERE ' . array_key_last($this->values) . ' = \'' . $this->values[array_key_last($this->values)] . '\'';
         return $sql;
     }
 

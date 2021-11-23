@@ -2,8 +2,6 @@
 
 namespace mvc\controllers;
 
-
-
 class Connector
 {
 protected $connect;
@@ -17,8 +15,7 @@ $config = include '../config/dbconfig.php';
         . ':'.$config['port']
         . ';dbname='.$config['db_name'];
     $this->connect = new \PDO($connectionConfig, $config['user'],$config['pass']);
-    //var_dump($connectionConfig);
-    //var_dump($this->connect );
+
 }
 
     public function getConnect(): \PDO

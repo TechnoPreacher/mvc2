@@ -10,14 +10,14 @@ abstract class Bridge
 
     public function __construct()
     {
-        $obj=new Connector();
-        $this->conn=$obj->getConnect();
+        $obj = new Connector();
+        $this->conn = $obj->getConnect();
     }
 
     public function fromDB()//запрос в БД
     {
         $exec = $this->conn->prepare($this->getSqlString());
-         $exec->execute();
+        $exec->execute();
         return $exec;
     }
 
