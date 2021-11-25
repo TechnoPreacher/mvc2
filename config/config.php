@@ -2,7 +2,7 @@
 
 return array(
 
-    "mvc\controllers\DefaultController@index"=>"",
+    "mvc\controllers\DefaultController@index"=>"",//для корректной обработки пустоты
 
     "mvc\controllers\Admin\AdminFrontController@def"   => "admin",//админская зона
     "mvc\controllers\Admin\AdminFrontController@index" => "admin/index",
