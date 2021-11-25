@@ -41,6 +41,7 @@ class Delete extends Bridge
     public function execute()
     {
         $result = $this->fromDB();//подготовка и выполнение запроса (из бриджа)
+
         return $result;
     }
 

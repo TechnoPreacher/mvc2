@@ -41,7 +41,6 @@
     </div>
 </form>
 
-
 <table>
     <?php foreach ($data as $key => $row) :  ?>
     <tr>
@@ -54,7 +53,7 @@
     <?php endforeach ?>
 </table>
 
-//post/update?id=<?=$row['id'] ?>
+<a class="btn btn-info" href="/" role="button">На главную</a>
 
 </body>
 </html>

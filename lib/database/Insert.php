@@ -46,6 +46,7 @@ class Insert extends Bridge
         }
         $strValues = mb_substr($strValues, 0, mb_strlen($strValues) - 2);//убить последнюю запятую и пробел
         $sql .= $strNames . ') VALUES (' . $strValues . ')';
+
         return $sql;
     }
 
