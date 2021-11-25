@@ -1,4 +1,4 @@
-<h5>Форма обновления данных о посте</h5>
+<h5>Форма обновления таблицы авторов</h5>
 </br>
 </br>
 
@@ -16,15 +16,15 @@
     <div class="row">
 
         <div class="col">
-            <input type="text" class="form-control" name="author_id" value="<?=$data[0]['author_id'] ?>">
+            <input type="text" class="form-control" name="user_id" value="<?=$data[0]['user_id'] ?>">
         </div>
 
         <div class="col">
-            <input type="text" class="form-control"  name="subject" value="<?=$data[0]['subject'] ?>">
+            <input type="text" class="form-control"  name="name" value="<?=$data[0]['name'] ?>">
         </div>
 
         <div class="col">
-            <input type="text" class="form-control"  name="detail" value="<?=$data[0]['detail'] ?>">
+            <input type="password" class="form-control"  name="pass" value="<?=$data[0]['pass'] ?>">
         </div>
 
         <div class="col">
@@ -36,7 +36,6 @@
         </div>
     </div>
 </form>
-
 <a class="btn btn-info" href="/" role="button">На главную</a>
 
 </body>

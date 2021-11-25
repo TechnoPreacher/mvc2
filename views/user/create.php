@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<br lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Create для модели Post (admin zone)</title>
@@ -9,28 +9,33 @@
 </head>
 <br>
 
-<h4>Форма для добавления постов с одновременным просмотром всей таблицы</h4>
-
+<h4>Добавление данных в таблицу авторов с просмотром содержимого (admin role)</h4>
+</br>
 <form name="create" method="post" action="">
         <div class="row">
             <div class="col">
-                <input type="text" class="form-control" name="author_id" placeholder="author ID">
+                <input type="text" class="form-control" name="user_id" placeholder="User ID">
             </div>
             <div class="col">
-                <input type="text" class="form-control"  name="subject"placeholder="subject title">
+                <input type="text" class="form-control"  name="name"placeholder="User name">
             </div>
             <div class="col">
-                <input type="text" class="form-control"  name="detail" placeholder="subject body">
+                <input type="text" class="form-control"  name="pass"placeholder="User password">
             </div>
             <div class="col">
-                <button type="submit" name="send" class="btn btn-primary">Add to DB</button>
+                <button type="submit" name="send" class="btn btn-primary">Add to Users</button>
             </div>
+
         </div>
 </form>
+
+<br>
 
 <table>
 
     <?php
+
+
     foreach ($data as $key => $row) :  ?>
         <tr>
             <?php foreach($row as $key => $value) : ?>
@@ -41,10 +46,8 @@
         </tr>
     <?php endforeach ?>
 </table>
-<br>
+
 <a class="btn btn-info" href="/" role="button">На главную</a>
-
-
 </body>
 </html>
 

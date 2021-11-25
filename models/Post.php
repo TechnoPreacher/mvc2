@@ -27,6 +27,7 @@ class Post extends Model
         $table = $select->execute();
         return $table;
     }
+    
 
     public function setPost($postToDB): void//запись в базу
     {
