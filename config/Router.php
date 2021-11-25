@@ -38,10 +38,6 @@ class Router
     {
         $namespace = array_search($this->url, $this->config);
 
-//       echo '</br> NAMESPACE FROM ROUTER: ' . $namespace . '</br>';
-//        if (empty($namespace)) {//если корень - даю корневую вьюшку
-//            $namespace = 'mvc\controllers\DefaultController@index';
-//        }
         {
             if (!$namespace) {
                 new ErrorController();
